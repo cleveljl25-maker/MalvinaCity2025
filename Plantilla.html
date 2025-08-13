@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla - Club Malvina City</title>
+    <link rel="icon" type="image/png" href="Malvina City Escudo.png">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.8);
+        }
+        nav {
+            background-color: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #FFD700;
+            color: black;
+        }
+        h1 {
+            color: #FFD700;
+        }
+        h2 {
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background-color: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.6);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+        }
+        .info {
+            margin-top: 10px;
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        footer {
+            background-color: rgba(0,0,0,0.8);
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plantilla Oficial</h1>
+    </header>
+
+    <nav>
+        <a href="Malvina city.html">Inicio</a>
+        <a href="Plantilla.html">Plantilla</a>
+    </nav>
+
+    <section>
+        <h2>Categoría Sub 16</h2>
+        <div class="container">
+            <div class="card">
+                <img src="JL.png.png" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Layonel Cevallos</p>
+                    <p><strong>Posición:</strong> Delantero</p>
+                    <p><strong>Número:</strong> 9</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Daniel bustos.png" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Daniel Busto </p>
+                    <p><strong>Posición:</strong> Volante</p>
+                    <p><strong>Número:</strong> 11</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="istockphoto-2171382633-612x612.jpj.jpg" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Carlos Herrera</p>
+                    <p><strong>Posición:</strong> Defensa</p>
+                    <p><strong>Número:</strong> 4</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="istockphoto-2171382633-612x612.jpj.jpg" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Diego Molina</p>
+                    <p><strong>Posición:</strong> Portero</p>
+                    <p><strong>Número:</strong> 1</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Plantilla Principal </h2>
+        <div class="container">
+            <div class="card">
+                <img src="JL.png.png" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Jose Clevel</p>
+                    <p><strong>Posición:</strong> Delantero</p>
+                    <p><strong>Número:</strong> 10</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="istockphoto-2171382633-612x612.jpj.jpg" alt="Jugador">
+                <div class="info">
+                    <p><strong>Nombre:</strong> Felipe Torres</p>
+                    <p><strong>Posición:</strong> Mediocampista</p>
+                    <p><strong>Número:</strong> 8</p>
+                    <p><strong>Nacionalidad:</strong> Ecuatoriano</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Club Malvina City. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>

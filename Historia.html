@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Club Malvina City</title>
+    <link rel="icon" type="image/png" href="Malvina City Escudo.png">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+            line-height: 1.6;
+        }
+        header {
+            background-color: rgba(0,0,0,0.7);
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #FFD700;
+        }
+        main {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        /* Línea de tiempo */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+            padding-left: 40px;
+            border-left: 3px solid #FFD700;
+        }
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            background: #FFD700;
+            border: 3px solid #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 0;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+        }
+        .year {
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+        .content {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historia del Club Malvina City</h1>
+    </header>
+    <main>
+        <p>Desde su fundación, el <strong>Club Malvina City</strong> ha sido más que un equipo: un símbolo de unión, pasión y esfuerzo colectivo. Aquí repasamos algunos de los momentos más importantes que marcaron nuestra trayectoria.</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="year">2025</div>
+                <div class="content">
+                    <p>Fundación del Club Malvina City por un grupo de amigos apasionados por el fútbol. Se elige el nombre y se diseña el escudo oficial.</p>
+                    <img src="fotos/fundacion.jpg" alt="Fundación del club">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2026</div>
+                <div class="content">
+                    <p>Primer campeonato local, obteniendo el tercer puesto y ganándose el respeto de la comunidad futbolística.</p>
+                    <img src="fotos/campeonato2026.jpg" alt="Primer campeonato">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2027</div>
+                <div class="content">
+                    <p>Victoria histórica en el torneo regional, llevando por primera vez al club a la final y dejando huella en la historia del deporte local.</p>
+                    <img src="fotos/victoria2027.jpg" alt="Victoria regional">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="year">Futuro</div>
+                <div class="content">
+                    <p>Seguimos escribiendo nuestra historia con cada partido, cada gol y cada hincha que nos apoya desde las gradas.</p>
+                    <img src="fotos/futuro.jpg" alt="El futuro del club">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

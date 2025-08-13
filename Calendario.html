@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario - Club Malvina City</title>
+    <link rel="icon" type="image/png" href="Malvina City Escudo.png">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.8);
+        }
+        header h1 {
+            color: #FFD700;
+            margin: 0;
+        }
+        /* --- MENÚ CON EL MISMO DISEÑO QUE EN PLANTILLA --- */
+        nav {
+            background-color: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #FFD700;
+            color: black;
+        }
+        /* --- ESTILO DEL CALENDARIO --- */
+        .calendar {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: rgba(0,0,0,0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header button {
+            background-color: #FFD700;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .header button:hover {
+            background-color: #e6c200;
+        }
+        .days, .dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+        .day {
+            padding: 10px;
+            font-weight: bold;
+            background-color: rgba(255,215,0,0.2);
+        }
+        .date {
+            padding: 15px;
+            border: 1px solid rgba(255,215,0,0.4);
+        }
+        .date:hover {
+            background-color: rgba(255,215,0,0.2);
+            cursor: pointer;
+        }
+        .matched {
+            background-color: rgba(255,215,0,0.5);
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .details {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Calendario de Partidos - Club Malvina City</h1>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+<nav>
+    <a href="Malvina city.html">Inicio</a>
+    <a href="Plantilla.html">Plantilla</a>
+</nav>
+
+<div class="calendar">
+    <div class="header">
+        <button id="prev">← Mes Anterior</button>
+        <h2 id="monthYear"></h2>
+        <button id="next">Mes Siguiente →</button>
+    </div>
+    <div class="days">
+        <div class="day">Lun</div><div class="day">Mar</div><div class="day">Mié</div>
+        <div class="day">Jue</div><div class="day">Vie</div><div class="day">Sáb</div><div class="day">Dom</div>
+    </div>
+    <div class="dates" id="dates"></div>
+    <div class="details" id="details"></div>
+</div>
+
+<script>
+    const matches = [
+        { date: '2025-08-15', teams: 'Malvina City vs Atlético Sur', time: '16:00', stadium: 'Malvina Arena' },
+        { date: '2025-08-22', teams: 'Malvina City vs Deportivo Norte', time: '18:00', stadium: 'Estadio Norte' },
+        { date: '2025-09-05', teams: 'Malvina City vs Unión Este', time: '17:30', stadium: 'Malvina Arena' },
+        { date: '2025-09-12', teams: 'Malvina City vs F.C. Pacífico', time: '19:00', stadium: 'Estadio Pacífico' }
+    ];
+
+    const monthYearEl = document.getElementById('monthYear');
+    const datesEl = document.getElementById('dates');
+    const detailsEl = document.getElementById('details');
+    let current = new Date();
+
+    function renderCalendar() {
+        datesEl.innerHTML = '';
+        detailsEl.innerHTML = '';
+        const year = current.getFullYear();
+        const month = current.getMonth();
+
+        monthYearEl.textContent = current.toLocaleString('es-ES', { month: 'long', year: 'numeric' });
+
+        const firstDay = new Date(year, month, 1);
+        const startDay = (firstDay.getDay() + 6) % 7;
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let i = 0; i < startDay; i++) {
+            const emptyDiv = document.createElement('div');
+            datesEl.appendChild(emptyDiv);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateDiv = document.createElement('div');
+            dateDiv.classList.add('date');
+            dateDiv.textContent = day;
+            const fullDate = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+            const match = matches.find(m => m.date === fullDate);
+
+            if (match) {
+                dateDiv.classList.add('matched');
+                dateDiv.addEventListener('click', () => {
+                    detailsEl.innerHTML = `
+                        <h3>${match.teams}</h3>
+                        <p><strong>Fecha:</strong> ${day}/${month+1}/${year}</p>
+                        <p><strong>Hora:</strong> ${match.time}</p>
+                        <p><strong>Estadio:</strong> ${match.stadium}</p>
+                    `;
+                });
+            }
+            datesEl.appendChild(dateDiv);
+        }
+    }
+
+    document.getElementById('prev').addEventListener('click', () => { current.setMonth(current.getMonth() - 1); renderCalendar(); });
+    document.getElementById('next').addEventListener('click', () => { current.setMonth(current.getMonth() + 1); renderCalendar(); });
+
+    renderCalendar();
+</script>
+
+</body>
+</html>
